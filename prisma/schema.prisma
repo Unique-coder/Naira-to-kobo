@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id          String   @id @default(uuid())
+  userId      String
+  description String
+  // Old format: Naira with decimals (e.g., 1250.50)
+  amount      Decimal  @db.Decimal(10, 2)
+  // New format: Naira in kobo
+  amountKobo Int?
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+}

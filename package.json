@@ -1,0 +1,33 @@
+{
+  "name": "naira-kobo-migration",
+  "version": "1.0.0",
+  "description": "Database migration to convert Naira (decimal) to Kobo (integer) format with zero data loss",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "seed": "ts-node src/seed.ts",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "prisma:generate": "prisma generate"
+  },
+  "keywords": [
+    "database",
+    "migration",
+    "naira",
+    "kobo",
+    "prisma",
+    "postgresql"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.19.25",
+    "prisma": "^5.7.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.0",
+    "decimal.js": "^10.4.3"
+  }
+}
